@@ -1,0 +1,617 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Academic CV of Kailai Feng - generative AI, multimodal learning, and efficient on-device generation.">
+  <title>Kailai Feng | Academic CV</title>
+  <style>
+    :root {
+      --ink: #18202a;
+      --muted: #596473;
+      --accent: #163f66;
+      --line: #aeb9c4;
+      --paper: #fff;
+      --canvas: #edf1f4;
+      --link: #124f80;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { background: var(--canvas); }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--canvas);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 9.15pt;
+      line-height: 1.27;
+      -webkit-font-smoothing: antialiased;
+      font-variant-numeric: tabular-nums;
+    }
+
+    a {
+      color: var(--link);
+      text-decoration: none;
+      border-bottom: 0.45px solid rgba(18, 79, 128, 0.35);
+    }
+
+    a:hover { border-bottom-color: var(--link); }
+
+    .cv {
+      display: grid;
+      gap: 10mm;
+      justify-content: center;
+      padding: 10mm 0;
+    }
+
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      padding: 11.5mm 14mm 10mm;
+      background: var(--paper);
+      box-shadow: 0 2mm 8mm rgba(30, 42, 54, 0.14);
+      overflow: hidden;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 3.6mm;
+    }
+
+    h1 {
+      margin: 0;
+      color: #111923;
+      font-size: 22pt;
+      line-height: 1.05;
+      letter-spacing: 0.01em;
+      font-weight: 700;
+    }
+
+    .headline {
+      margin: 1.2mm 0 0;
+      color: var(--accent);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 9.2pt;
+      font-weight: 650;
+      letter-spacing: 0.015em;
+    }
+
+    .contact {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.2mm 4.2mm;
+      margin-top: 1.4mm;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 8.1pt;
+    }
+
+    .contact a { border-bottom: none; }
+
+    .contact span + span::before {
+      content: "·";
+      color: #8793a0;
+      margin-right: 4.2mm;
+    }
+
+    section { margin-top: 2.5mm; }
+
+    h2 {
+      display: flex;
+      align-items: center;
+      gap: 2.4mm;
+      margin: 0 0 1.4mm;
+      color: var(--accent);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 10.2pt;
+      line-height: 1;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      font-weight: 750;
+    }
+
+    h2::after {
+      content: "";
+      height: 0.55px;
+      flex: 1;
+      background: var(--line);
+    }
+
+    .entry { margin: 0 0 2.25mm; }
+    .entry:last-child { margin-bottom: 0; }
+
+    .entry-head,
+    .subline {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      column-gap: 5mm;
+      align-items: baseline;
+    }
+
+    .entry-title {
+      font-size: 9.55pt;
+      line-height: 1.16;
+      font-weight: 700;
+    }
+
+    .entry-title .tag {
+      color: var(--accent);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 7.1pt;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .when {
+      color: #354250;
+      font-style: italic;
+      white-space: nowrap;
+    }
+
+    .subline {
+      margin-top: 0.45mm;
+      color: var(--muted);
+      font-size: 8.55pt;
+      font-style: italic;
+    }
+
+    ul {
+      margin: 0.8mm 0 0 4.5mm;
+      padding-left: 3.3mm;
+    }
+
+    li { margin: 0.35mm 0; }
+    li::marker { color: var(--accent); }
+
+    .compact .entry { margin-bottom: 1.65mm; }
+    .compact ul { margin-top: 0.45mm; }
+    .compact li { margin: 0.18mm 0; }
+
+    .publications {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      counter-reset: pub;
+    }
+
+    .publication {
+      position: relative;
+      margin: 0 0 1.45mm;
+      padding-left: 5.6mm;
+      counter-increment: pub;
+    }
+
+    .publication::before {
+      content: counter(pub) ".";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--accent);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 7.6pt;
+      font-weight: 700;
+    }
+
+    .paper-title { font-weight: 700; }
+    .authors { color: #3f4a57; }
+    .me { text-decoration: underline; text-underline-offset: 1.4px; }
+    .venue { color: var(--accent); font-weight: 700; white-space: nowrap; }
+    .paper-links { white-space: nowrap; font-family: Arial, Helvetica, sans-serif; font-size: 7.25pt; }
+    .paper-links a { margin-left: 1.6mm; }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1.12fr 0.88fr;
+      gap: 5.2mm;
+      align-items: start;
+    }
+
+    .plain-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .plain-list li {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 2.5mm;
+      margin: 0 0 1.15mm;
+    }
+
+    .plain-list .label { font-weight: 700; }
+
+    .note {
+      margin-top: 2.1mm;
+      padding-top: 1.4mm;
+      border-top: 0.5px solid #d5dce3;
+      color: #687380;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 6.8pt;
+      line-height: 1.25;
+    }
+
+    /* One-page research CV */
+    .cv.one-page { display: block; padding: 8mm 0; }
+    .one-page .page {
+      height: 297mm;
+      min-height: 297mm;
+      padding: 8.5mm 12.5mm 7.5mm;
+    }
+    .one-page header { margin-bottom: 2.1mm; }
+    .one-page h1 { font-size: 20pt; }
+    .one-page .headline { margin-top: 0.75mm; font-size: 8.5pt; }
+    .one-page .contact { margin-top: 0.9mm; font-size: 7.6pt; }
+    .one-page section { margin-top: 1.75mm; }
+    .one-page h2 { margin-bottom: 1.05mm; font-size: 9.35pt; }
+    .edu-row {
+      display: grid;
+      grid-template-columns: 1.35fr 1.55fr auto;
+      gap: 2.8mm;
+      align-items: baseline;
+      margin-bottom: 0.55mm;
+      font-size: 8.55pt;
+    }
+    .edu-row .school { font-weight: 700; }
+    .edu-row .degree { color: #465463; font-style: italic; }
+    .role { margin-bottom: 1.55mm; }
+    .role:last-child { margin-bottom: 0; }
+    .role-head {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 4mm;
+      align-items: baseline;
+    }
+    .role-title { font-size: 9.05pt; font-weight: 700; }
+    .role-focus {
+      margin: 0.3mm 0 0.45mm;
+      color: #5a6673;
+      font-size: 7.75pt;
+      font-style: italic;
+    }
+    .dense-list {
+      margin: 0.3mm 0 0 4.2mm;
+      padding-left: 3mm;
+      font-size: 8.05pt;
+      line-height: 1.18;
+    }
+    .dense-list li { margin: 0.22mm 0; }
+    .paper-label { font-weight: 700; }
+    .authorship {
+      display: inline-block;
+      margin: 0 0.7mm;
+      padding: 0.12mm 0.8mm 0.05mm;
+      border: 0.5px solid #9aabbc;
+      border-radius: 1.5mm;
+      color: var(--accent);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 6.25pt;
+      font-weight: 700;
+      letter-spacing: 0.025em;
+      text-transform: uppercase;
+      vertical-align: 0.35mm;
+      white-space: nowrap;
+    }
+    .inline-links {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 6.6pt;
+      white-space: nowrap;
+    }
+    .inline-links a { margin-left: 1mm; }
+    .bottom-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5mm;
+    }
+    .micro-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      font-size: 7.9pt;
+      line-height: 1.16;
+    }
+    .micro-list li {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 2mm;
+      margin: 0 0 0.6mm;
+    }
+    .micro-list strong { font-weight: 700; }
+    .one-page .note { margin-top: 1.3mm; padding-top: 0.9mm; font-size: 6.2pt; }
+
+    /* Traditional one-page academic resume, following the supplied reference. */
+    .cv.classic { display: block; padding: 8mm 0; }
+    .classic .page {
+      height: 297mm;
+      min-height: 297mm;
+      padding: 7.5mm 12mm 7mm;
+      color: #111;
+    }
+    .classic header { margin-bottom: 2.2mm; }
+    .classic h1 { color: #111; font-size: 17pt; letter-spacing: 0; }
+    .classic .contact { margin-top: 1.1mm; color: #111; font-family: Georgia, "Times New Roman", serif; font-size: 7.7pt; }
+    .classic .contact span + span::before { color: #111; }
+    .classic section { margin-top: 2mm; }
+    .classic h2 {
+      display: block;
+      margin: 0 0 0.8mm;
+      padding-bottom: 0.45mm;
+      border-bottom: 0.65px solid #111;
+      color: #111;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 8.3pt;
+      line-height: 1;
+      letter-spacing: 0;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .classic h2::after { display: none; }
+    .classic-entry { margin-bottom: 1.3mm; }
+    .classic-entry:last-child { margin-bottom: 0; }
+    .classic-head {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 4mm;
+      align-items: baseline;
+      font-size: 8.4pt;
+      line-height: 1.14;
+    }
+    .classic-head strong { font-weight: 600; }
+    .research-paper-title {
+      overflow: hidden;
+      color: #111;
+      font-size: 8.3pt;
+      font-weight: 600;
+      line-height: 1.12;
+      text-overflow: clip;
+      white-space: nowrap;
+    }
+    .research-paper-title a {
+      color: inherit;
+      border-bottom: none;
+      text-decoration: none;
+    }
+    .research-paper-title a:hover { border-bottom: 0.45px solid #111; }
+    .classic-sub {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 4mm;
+      margin-top: 0.22mm;
+      font-size: 7.8pt;
+      font-style: italic;
+      line-height: 1.12;
+    }
+    .research-meta > span:last-child {
+      text-align: right;
+      white-space: nowrap;
+    }
+    .classic-list {
+      margin: 0.35mm 0 0 4.2mm;
+      padding-left: 3mm;
+      font-size: 8.15pt;
+      line-height: 1.2;
+    }
+    .classic-list li { margin: 0.2mm 0; }
+    .classic .authorship {
+      margin-left: 0;
+      padding: 0;
+      border: 0;
+      border-radius: 0;
+      color: #111;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 7.8pt;
+      font-style: italic;
+      font-weight: 400;
+      letter-spacing: 0;
+      text-transform: none;
+      vertical-align: 0;
+    }
+    .classic .inline-links { font-size: 6.7pt; }
+    .classic .inline-links a { margin-left: 1.1mm; }
+    .classic-education .classic-entry { margin-bottom: 1mm; }
+    .classic-bottom {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5mm;
+    }
+    .classic-bottom-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      font-size: 7.65pt;
+      line-height: 1.15;
+    }
+    .classic-bottom-list li {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 1.5mm;
+      margin-bottom: 0.45mm;
+    }
+    .classic-bottom-list strong { font-weight: 600; }
+    .classic .note { margin-top: 1.1mm; padding-top: 0.7mm; font-size: 5.9pt; text-align: center; }
+
+    @media (max-width: 820px) {
+      .cv { padding: 0; gap: 0; }
+      .page {
+        width: 100%;
+        min-height: auto;
+        padding: 7vw 6vw;
+        box-shadow: none;
+      }
+      .two-col { grid-template-columns: 1fr; }
+      .entry-head, .subline { column-gap: 3mm; }
+    }
+
+    @page { size: A4; margin: 0; }
+
+    @media print {
+      html, body, .cv { background: #fff; }
+      .cv { display: block; padding: 0; }
+      .page {
+        width: 210mm;
+        height: 297mm;
+        min-height: 297mm;
+        margin: 0;
+        box-shadow: none;
+        break-after: page;
+        page-break-after: always;
+      }
+      .page:last-child { break-after: auto; page-break-after: auto; }
+      a { color: inherit; border-bottom: none; }
+      .entry, .publication { break-inside: avoid; page-break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <main class="cv classic" aria-label="Kailai Feng academic curriculum vitae">
+    <article class="page">
+      <header>
+        <h1>Kailai Feng</h1>
+        <div class="contact" aria-label="Contact links">
+          <span><a href="mailto:klfeng1206@outlook.com">klfeng1206@outlook.com</a></span>
+          <span><a href="https://carlofkl.github.io/">Homepage</a></span>
+          <span><a href="https://www.linkedin.com/in/klfeng1206">LinkedIn</a></span>
+          <span><a href="https://github.com/Carlofkl">GitHub</a></span>
+          <span><a href="https://scholar.google.com/citations?user=CCdeEeQAAAAJ&amp;hl=en">Google Scholar</a></span>
+        </div>
+      </header>
+
+      <section class="classic-education" aria-labelledby="education-heading">
+        <h2 id="education-heading">Education</h2>
+        <div class="classic-entry">
+          <div class="classic-head"><strong>University College London</strong><strong>Oct. 2026</strong></div>
+          <div class="classic-sub"><span>Incoming Ph.D. Student · Supervisor: Assoc. Prof. Jagmohan Chauhan</span><span></span></div>
+        </div>
+        <div class="classic-entry">
+          <div class="classic-head"><strong>Harbin Institute of Technology</strong><strong>Aug. 2023 - Mar. 2026</strong></div>
+          <div class="classic-sub"><span>M.Eng. in Computer Science and Technology · Advisor: Prof. Wangmeng Zuo</span><span></span></div>
+        </div>
+        <div class="classic-entry">
+          <div class="classic-head"><strong>Harbin Institute of Technology</strong><strong>Aug. 2019 - Jun. 2023</strong></div>
+          <div class="classic-sub"><span>B.Eng. in Artificial Intelligence</span><span></span></div>
+        </div>
+      </section>
+
+      <section aria-labelledby="research-heading">
+        <h2 id="research-heading">Research Experience</h2>
+
+        <div class="classic-entry">
+          <div class="research-paper-title"><a href="https://carlofkl.github.io/dreamlite/">DreamLite: A Lightweight On-Device Unified Model for Image Generation and Editing</a></div>
+          <div class="classic-sub research-meta"><span><span class="authorship">1st Author · ECCV 2026 (700+ GitHub stars)</span></span><span></span></div>
+          <ul class="classic-list">
+            <li>Developed the first unified on-device model for image generation and editing with a 0.39B backbone; achieved GenEval 0.72 and ImgEdit 4.11, outperforming 12B models such as FLUX, with 3-second generation and editing on an iPhone 17 Pro.</li>
+            <li>Unified both tasks through in-context conditioning in latent space; proposed Task-Progressive Joint Pretraining, surpassing separately trained generation- and editing-only models.</li>
+            <li>Owned pretraining, editing training, joint training, step distillation, and deployment on iOS and Android devices.</li>
+          </ul>
+        </div>
+
+        <div class="classic-entry">
+          <div class="research-paper-title"><a href="https://openaccess.thecvf.com/content/WACV2026/papers/Feng_VitaGlyph_Vitalizing_Artistic_Typography_with_Flexible_Dual-branch_Diffusion_Models_WACV_2026_paper.pdf">VitaGlyph: Vitalizing Artistic Typography with Flexible Dual-Branch Diffusion Models</a></div>
+          <div class="classic-sub research-meta"><span><span class="authorship">1st Author · WACV 2026</span></span><span></span></div>
+          <ul class="classic-list">
+            <li>Developed a training-free artistic typography pipeline to balance visual creativity and glyph legibility; improved both artistry and readability while supporting flexible multi-concept customization.</li>
+            <li>Used an LLM and Grounding DINO to split glyphs into deformable Subject and legibility-preserving Surrounding branches; reshaped the Subject with DiffVG and SDS loss, then combined regional interpretation and attention-guided composition for geometry/texture control.</li>
+            <li>Owned pipeline design, implementation, experimental validation, ablation studies, and manuscript writing.</li>
+          </ul>
+        </div>
+
+        <div class="classic-entry">
+          <div class="research-paper-title"><a href="https://openaccess.thecvf.com/content/CVPR2025/papers/Jiang_MC2_Multi-concept_Guidance_for_Customized__Multi-concept_Generation_CVPR_2025_paper.pdf">MC²: Multi-Concept Guidance for Customized Multi-Concept Generation</a></div>
+          <div class="classic-sub research-meta"><span><span class="authorship">3rd Author · CVPR 2025</span></span><span></span></div>
+          <ul class="classic-list">
+            <li>Enabled customized multi-concept generation by composing separately trained heterogeneous single-concept models without joint training, model merging, or extra spatial conditions; outperformed training-based methods in prompt–reference alignment.</li>
+            <li>Proposed inference-time Multi-Concept Guidance that adaptively refines visual–text attention and aligns image regions with their concepts to reduce attribute leakage and concept interference.</li>
+            <li>Designed and implemented the attention-map module, ran baseline experiments, and contributed to analysis and writing.</li>
+          </ul>
+        </div>
+
+        <div class="classic-entry">
+          <div class="research-paper-title"><a href="https://doi.org/10.1109/ICME57554.2024.10687898">Multi-Attentional Distance for Zero-Shot Classification with Text-to-Image Diffusion</a></div>
+          <div class="classic-sub research-meta"><span><span class="authorship">1st Author · ICME 2024 Oral</span></span><span></span></div>
+          <ul class="classic-list">
+            <li>Developed a training-free zero-shot classifier from pretrained text-to-image diffusion models, avoiding task-specific training and image reconstruction; the work was selected as an ICME 2024 Oral.</li>
+            <li>Proposed cross-attention semantic and self-attention structural distances under Bayes' rule, then combined them for label–image matching.</li>
+            <li>Owned method design, full code implementation, experimental validation, ablation studies, and manuscript writing.</li>
+          </ul>
+        </div>
+
+        <div class="classic-entry">
+          <div class="research-paper-title"><a href="https://doi.org/10.1007/s11432-024-4985-y">Ref-Diff: Zero-Shot Referring Image Segmentation with Generative Models</a></div>
+          <div class="classic-sub research-meta"><span><span class="authorship">3rd Author · Science China Information Sciences (IF=8.1), 2026</span></span><span></span></div>
+          <ul class="classic-list">
+            <li>Developed a zero-shot referring image segmentation framework without paired image–text–mask training data; the generative-only version matched weakly supervised methods, while the full model outperformed competing zero-shot methods.</li>
+            <li>Generated fine-grained mask proposals from diffusion attention, then matched them to text with a discriminative model.</li>
+            <li>Designed and implemented attention-map extraction, ran baseline experiments, and contributed to analysis and writing.</li>
+          </ul>
+        </div>
+
+        <div class="classic-entry">
+          <div class="research-paper-title"><a href="https://openreview.net/pdf/871b8a661c3de03ebac23389dedd92af1f741b4c.pdf">ImaginaryNet: Learning Object Detectors without Real Images and Annotations</a></div>
+          <div class="classic-sub research-meta"><span><span class="authorship">3rd Author · ICLR 2023</span></span><span></span></div>
+          <ul class="classic-list">
+            <li>Introduced an image-free object detection pipeline requiring neither real training images nor manual annotations; reached about 75% of the same-backbone weakly supervised detector trained on real data.</li>
+            <li>Expanded class labels into scene descriptions with a language model, synthesized images, and trained detectors from weak labels.</li>
+            <li>Implemented the main training pipeline and baseline experiments, and contributed to experimental analysis and manuscript revision.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section aria-labelledby="industry-heading">
+        <h2 id="industry-heading">Industry Experience</h2>
+        <div class="classic-entry">
+          <div class="classic-head"><strong>ByteDance, Intelligent Creation Lab</strong><strong>Sep. 2025 - Aug. 2026</strong></div>
+          <div class="classic-sub"><span>Research Intern · Efficient and On-Device Generative AI</span><span></span></div>
+          <ul class="classic-list">
+            <li>Core DreamLite-v1 researcher: training, paper submission, repo release/maintenance, LoRA/deployment instruction, Diffusers integration.</li>
+            <li>Led architecture design, deployment, and comparative experiments across candidate models for DreamLite-v2.</li>
+            <li>Led the design, evaluation, and deployment of an on-device diffusion benchmark, including experiments with relevant baselines.</li>
+          </ul>
+        </div>
+        <div class="classic-entry">
+          <div class="classic-head"><strong>Beijing Century TAL Education Technology Co., Ltd.</strong><strong>Apr. 2024 - Sep. 2025</strong></div>
+          <div class="classic-sub"><span>Research Intern · Generative AI and Text-to-SVG Video</span><span></span></div>
+          <ul class="classic-list">
+            <li>Led the VitaGlyph project from method development and experiments through paper submission.</li>
+            <li>Developed a text-to-SVG animation pipeline that uses pretrained diffusion models to guide SVG motion generation.</li>
+          </ul>
+        </div>
+        <div class="classic-entry">
+          <div class="classic-head"><strong>TikTok, ByteDance</strong><strong>Nov. 2022 - Jul. 2023</strong></div>
+          <div class="classic-sub"><span>Machine Learning Engineer Intern · Multi-Task Learning and Video Auto-Moderation</span><span></span></div>
+          <ul class="classic-list">
+            <li>Owned zero-view pre-recall and feature iteration; proposed multi-path recall, improving overall, violation, and unapproved recall by 3%.</li>
+            <li>Designed a multi-scenario recall model with Scenario-Aware Attention and shared/scenario-specific Sub-Experts; within a two-tower architecture, improved violation recall by 2% and unapproved recall by 4%.</li>
+            <li>Migrated the production pipeline from TensorFlow to PyTorch with functional and performance parity; six models were launched across multiple regions.</li>
+          </ul>
+        </div>
+      </section>
+
+      <div class="classic-bottom">
+        <section aria-labelledby="leadership-heading">
+          <h2 id="leadership-heading">Leadership &amp; Service</h2>
+          <ul class="classic-bottom-list">
+            <li><span><strong>Youth Envoy</strong>, ITU Generation Connect</span><span>2024 - Present</span></li>
+            <li><span><strong>President</strong>, Graduate Student Union, HIT Computing</span><span>2023 - 2024</span></li>
+            <li><span><strong>President</strong>, HIT Student Union</span><span>2021 - 2022</span></li>
+          </ul>
+        </section>
+        <section aria-labelledby="honors-heading">
+          <h2 id="honors-heading">Selected Honors</h2>
+          <ul class="classic-bottom-list">
+            <li><span><strong>Samsung Scholarship</strong> (0.18%)</span><span>2024</span></li>
+            <li><span><strong>Tencent Scholarship</strong> (3%)</span><span>2024</span></li>
+            <li><span><strong>Special Prize, School Scholarship</strong> (20%)</span><span>2023, 2024</span></li>
+            <li><span><strong>Outstanding Graduate, HIT</strong> (10%)</span><span>2023</span></li>
+          </ul>
+        </section>
+      </div>
+
+      <p class="note">Publication status and author position checked against Google Scholar and linked publisher records on 31 Aug. 2026.</p>
+    </article>
+  </main>
+</body>
+</html>
